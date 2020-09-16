@@ -26,7 +26,7 @@ def findmails():
                         aut = authors[0].text
                         id = [tit,aut]
                         #if 'Professor' in section[0].text or 'Lecturer' in section[0].text:
-                        with open('psycinfoemo.csv', 'a+',newline='\n') as csvfile:
+                        with open('filename.csv', 'a+',newline='\n') as csvfile:
                             writer = csv.writer(csvfile, delimiter=';')
                             writer.writerow(id)
                         print(id)
@@ -39,7 +39,7 @@ def findmails():
 
 #Selector of main website and main object
 
-r=requests.get('http://web.b.ebscohost.com/ehost/resultsadvanced?vid=27&sid=912a05e5-ec93-4da9-8984-1243eac054c2%40sessionmgr103&bquery=AB+%22peer+assessment%22+AND+AB+emotion&bdata=JkF1dGhUeXBlPWlwLGNvb2tpZSx1cmwsdWlkJmRiPXBzeWgmY2xpMD1QWSZjbHYwPTIwMTQwMS0yMDIwMTImbGFuZz1lcyZ0eXBlPTEmc2VhcmNoTW9kZT1TdGFuZGFyZCZzaXRlPWVob3N0LWxpdmUmc2NvcGU9c2l0ZQ%3d%3d', headers={'User-agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0'})
+r=requests.get('psycinfo url', headers={'User-agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0'})
 c=r.content
 soup=BeautifulSoup(c,'html.parser')
 all=soup.find_all('div',{'class':'resultListPanel'})
