@@ -25,7 +25,7 @@ def findmails():
                         abst = abstract[0].text
                         id = [tit,aut,abst]
                         #if 'Professor' in section[0].text or 'Lecturer' in section[0].text:
-                        with open('ERIC1.csv', 'a+',newline='\n') as csvfile:
+                        with open('filename', 'a+',newline='\n') as csvfile:
                             writer = csv.writer(csvfile, delimiter=';')
                             writer.writerow(id)
                         print(id)
@@ -38,7 +38,7 @@ def findmails():
 
 #Selector of main website and main object
 
-r=requests.get('https://eric.ed.gov/?q=abstract%3a%22PA%22+AND+abstract%3a%22motivation%22&ff1=dtySince_2011&pg=5', headers={'User-agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0'})
+r=requests.get('eric url', headers={'User-agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0'})
 c=r.content
 soup=BeautifulSoup(c,'html.parser')
 all=soup.find_all('div',{'id':'main'})
